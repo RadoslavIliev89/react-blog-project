@@ -1,0 +1,39 @@
+.header-container{
+    background-color: black;
+    color:white;
+    margin-bottom: 15px;
+    
+}
+ .header-container h1 {
+ display: inline-block;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.section-container ul li {
+    padding: 0.4rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    background: white;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 15px;
+   
+   
+}
+.section-container ul{
+        display: inline-block;
+        list-style: none;
+        
+        
+}
+.section-container{
+    display: inline-block;
+    float: right;
+  
+    
+}
+.section-container ul li a{
+    color:black;
+  text-decoration: none;
+}
