@@ -1,0 +1,21 @@
+.posts-lists {
+    display: inline-flex;
+}
+.posts-lists li{
+    margin: 20px;
+    list-style-type: none;
+
+}
+.posts-lists li h1{
+    font-family: emoji;
+    font-size: 35px;
+    text-align: center;
+}
+.posts-lists .description{
+    width:17rem;
+}
+.img{
+    width: 300px;
+    height:auto;
+  
+}
