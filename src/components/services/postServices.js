@@ -5,7 +5,8 @@ export const create = (title,category,imageUrl,description) => {
         title,
         category,
         imageUrl,
-        description
+        description,
+        
     }
     const firebaseDb = firebase.database().ref('posts')
     return (

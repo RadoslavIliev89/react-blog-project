@@ -7,7 +7,7 @@ const CreatePost = () => {
         e.preventDefault();
         
         const { title, category, imageURL, description } = e.target
-        
+        // let dataAndTime= new Data();
         postService.create(title.value,category.value,imageURL.value,description.value );
     }
     return (
