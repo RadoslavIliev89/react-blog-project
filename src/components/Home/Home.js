@@ -1,15 +1,24 @@
 import './Home.css';
-import CreatePost from '../CreatePost/CreatePost'
 import PostCard from './PostCard/PostCard';
+import * as postService from '../services/postServices';
+import firebase from '../../utils/firebaseDB';
 
+const firebaseDb = firebase.database().ref('posts');
 const Home = () => {
 
-  
+
+    firebaseDb.on('value', getData)
+    function getData(data) {
+        console.log( typeof data.val());
+       
+    }
+
+
 
 
     return (
         <div className="create">
-            <CreatePost />
+            <h1>Home page</h1>
             <ul className="posts-lists">
                 {[].map(x =>
                     <PostCard post={x} />

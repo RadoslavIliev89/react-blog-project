@@ -1,15 +1,26 @@
 
 import firebase from '../../utils/firebaseDB';
-export const create = (title,category,imageUrl,description) => {
-    const post ={
+
+const firebaseDb = firebase.database().ref('posts');
+
+export const create = (title, category, imageURL, description,) => {
+    const post = {
         title,
         category,
-        imageUrl,
+        imageURL,
         description,
-        
     }
-    const firebaseDb = firebase.database().ref('posts')
+    const autoId = firebaseDb.push().key;
     return (
-        firebaseDb.push(post)
+
+        firebaseDb.child(autoId).set(post)
     );
+}
+
+export const get = () => {
+    firebaseDb.on('value', getData)
+    function getData(data) {
+        console.log(data);
+        return data;
+    }
 }
