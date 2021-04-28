@@ -1,11 +1,11 @@
-const PostCard=({post}) => {
-
+const PostCard=(props) => {
+console.log(props);
 return (
     <li>
-    <h1>{post.title}</h1>
-    <p>Category: {post.category}</p>
-    <p><img className="img" src={post.imageUrl} /></p>
-    <p className="description">{post.description}</p>
+    <h1>{props.title}</h1>
+    <p>Category: {props.category}</p>
+    <p><img className="img" src={props.imageURL} /></p>
+    <p className="description">{props.description}</p>
 </li>
 );
 }

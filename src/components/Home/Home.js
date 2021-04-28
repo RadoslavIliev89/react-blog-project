@@ -1,27 +1,24 @@
 import './Home.css';
 import PostCard from './PostCard/PostCard';
-import * as postService from '../services/postServices';
-import firebase from '../../utils/firebaseDB';
+import * as postServices from '../services/postServices'
+import { useState, useEffect } from 'react'
 
-const firebaseDb = firebase.database().ref('posts');
+
 const Home = () => {
+    const [post, setPost] = useState('');
 
-
-    firebaseDb.on('value', getData)
-    function getData(data) {
-        console.log( typeof data.val());
-       
-    }
-
-
+    useEffect(() => {
+        postServices.getAll()
+            .then(res => setPost(res.val().posts))
+    }, [])
 
 
     return (
         <div className="create">
             <h1>Home page</h1>
             <ul className="posts-lists">
-                {[].map(x =>
-                    <PostCard post={x} />
+                {Object.entries(post).map(x =>
+                    <PostCard key={x[0]}{...x[1]} />
                 )}
             </ul>
         </div>

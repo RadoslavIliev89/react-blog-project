@@ -1,7 +1,7 @@
 
 import firebase from '../../utils/firebaseDB';
 
-const firebaseDb = firebase.database().ref('posts');
+const firebaseDb = firebase.database();
 
 export const create = (title, category, imageURL, description,) => {
     const post = {
@@ -10,17 +10,15 @@ export const create = (title, category, imageURL, description,) => {
         imageURL,
         description,
     }
-    const autoId = firebaseDb.push().key;
+    const autoId = firebaseDb.ref('posts').push().key;
     return (
 
-        firebaseDb.child(autoId).set(post)
+        firebaseDb.ref('posts').child(autoId).set(post)
     );
 }
 
-export const get = () => {
-    firebaseDb.on('value', getData)
-    function getData(data) {
-        console.log(data);
-        return data;
-    }
+export const getAll = () => {
+
+    return firebaseDb.ref().get()
+       
 }
