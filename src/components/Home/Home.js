@@ -5,11 +5,19 @@ import { useState, useEffect } from 'react'
 
 
 const Home = () => {
-    const [post, setPost] = useState('');
+    const [post, setPost] = useState([]);
 
     useEffect(() => {
         postServices.getAll()
-            .then(res => setPost(res.val().posts))
+            .then(res => {
+                const data = [];
+                Object.entries(res.val().posts).map(x => {
+                    data.push({ ...x[1], id: x[0] })
+                })
+                setPost(data);
+            }
+
+            )
     }, [])
 
 
@@ -17,8 +25,9 @@ const Home = () => {
         <div className="create">
             <h1>Home page</h1>
             <ul className="posts-lists">
-                {Object.entries(post).map(x =>
-                    <PostCard key={x[0]}{...x[1]} />
+                {post.map(x =>
+                   
+                    < PostCard key={x.id}{...x} />
                 )}
             </ul>
         </div>

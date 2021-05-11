@@ -20,5 +20,11 @@ export const create = (title, category, imageURL, description,) => {
 export const getAll = () => {
 
     return firebaseDb.ref().get()
-       
+
+}
+export const getOne = (id) => {
+
+    return firebaseDb.ref().child('posts').child(id).get();
+
+
 }

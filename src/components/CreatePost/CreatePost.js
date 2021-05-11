@@ -1,12 +1,16 @@
 import './CreatePost.css';
 import * as postService from '../services/postServices';
-const CreatePost = () => {
-   
+const CreatePost = ({ history }) => {
+
     const onChangeHandler = (e) => {
         e.preventDefault();
         const { title, category, imageURL, description } = e.target
-        postService.create(title.value,category.value,imageURL.value,description.value, )
         
+        postService.create(title.value, category.value, imageURL.value, description.value,)
+            .then(()=>{
+                history.push('/')
+            });
+
     }
     return (
         <section className="create-section">

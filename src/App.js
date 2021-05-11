@@ -7,6 +7,8 @@ import Home from './components/Home/Home';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import CreatePost from './components/CreatePost/CreatePost';
+import CurrentPost from './components/CurrentPost/CurrentPost';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path ="/register" component={Register}/>
         <Route path ="/login" component={Login}/>
         <Route path="/create" component={CreatePost}/>
+        <Route path="/current-post/:id" component={CurrentPost}/>
       </Switch>
       <Footer />
     </div>
