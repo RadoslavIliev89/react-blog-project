@@ -22,16 +22,17 @@ const Home = () => {
 
 
     return (
-        <div className="create">
+        <div className="">
             <h1>Home page</h1>
-            <ul className="posts-lists">
-                {post.map(x =>
-                   
-                    < PostCard key={x.id}{...x} />
-                )}
-            </ul>
-        </div>
+            <div className="container">
+                <div className="row">
+                    {post.map(x =>
 
+                        < PostCard key={x.id}{...x} />
+                    )}
+                </div>
+            </div>
+        </div>
     );
 };
 export default Home;

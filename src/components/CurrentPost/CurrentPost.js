@@ -1,5 +1,6 @@
 import *as postServices from '../services/postServices';
 import { useState, useEffect } from 'react';
+import './currentPost.css'
 
 const CurrentPost = ({ match }) => {
     const [currentPost, setCurrentPost] = useState({});
@@ -13,15 +14,16 @@ const CurrentPost = ({ match }) => {
 
     console.log(currentPost);
     return (
-        <div>
+        <div className="current-post">
+            <h1>{currentPost.title}</h1>
+          <img src={currentPost.imageURL} />
+            <p>{currentPost.category}</p>
+            <p>{currentPost.description}</p>
             <div className="actions">
+            {/* //TODO: hide for anon users */}
                 <a href="#edit">Edit</a>
                 <a href="#delete">Delete</a>
             </div>
-            <h1>{currentPost.title}</h1>
-            <h1>{currentPost.description}</h1>
-          <img src={currentPost.imageURL} />
-            <h1>{currentPost.category}</h1>
         </div>
 
     );
