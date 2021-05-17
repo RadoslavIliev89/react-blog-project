@@ -28,3 +28,6 @@ export const getOne = (id) => {
 
 
 }
+export const deletePost = (id) => {
+return firebaseDb.ref().child('posts').child(id).remove()
+}

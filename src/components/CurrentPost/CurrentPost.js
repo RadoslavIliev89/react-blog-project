@@ -1,8 +1,8 @@
 import *as postServices from '../services/postServices';
 import { useState, useEffect } from 'react';
-import './currentPost.css'
+import { Link } from 'react-router-dom';
 
-const CurrentPost = ({ match }) => {
+const CurrentPost = ({ match, history }) => {
     const [currentPost, setCurrentPost] = useState({});
 
     useEffect(() => {
@@ -12,18 +12,21 @@ const CurrentPost = ({ match }) => {
             })
     }, [])
 
-    console.log(currentPost);
+    const asd = () => {
+        postServices.deletePost(match.params.id)
+            .then(res => { 
+                history.push('/')
+            })
+    }
     return (
-        <div className="current-post">
+        <div>
+
             <h1>{currentPost.title}</h1>
-          <img src={currentPost.imageURL} />
-            <p>{currentPost.category}</p>
-            <p>{currentPost.description}</p>
-            <div className="actions">
-            {/* //TODO: hide for anon users */}
-                <a href="#edit">Edit</a>
-                <a href="#delete">Delete</a>
-            </div>
+            <h1>{currentPost.description}</h1>
+            <img src={currentPost.imageURL} />
+            <h1>{currentPost.category}</h1>
+            <Link to="/edit">Edit</Link>
+            <Link to="#"><button onClick={asd}>Delete</button></Link>
         </div>
 
     );
