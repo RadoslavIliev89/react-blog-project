@@ -31,3 +31,15 @@ export const getOne = (id) => {
 export const deletePost = (id) => {
 return firebaseDb.ref().child('posts').child(id).remove()
 }
+export const update=(title, category, imageURL, description,id)=> {
+   
+        const post = {
+            title,
+            category,
+            imageURL,
+            description,
+        }
+   
+            return firebaseDb.ref().child('posts').child(id). update(post)
+        
+}

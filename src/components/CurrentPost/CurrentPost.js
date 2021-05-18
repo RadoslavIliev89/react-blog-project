@@ -18,6 +18,7 @@ const CurrentPost = ({ match, history }) => {
                 history.push('/')
             })
     }
+  
     return (
         <div>
 
@@ -25,7 +26,7 @@ const CurrentPost = ({ match, history }) => {
             <h1>{currentPost.description}</h1>
             <img src={currentPost.imageURL} />
             <h1>{currentPost.category}</h1>
-            <Link to="/edit">Edit</Link>
+            <Link to={"/edit/"+`${match.params.id}`}><button>Edit</button></Link>
             <Link to="#"><button onClick={asd}>Delete</button></Link>
         </div>
 

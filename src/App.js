@@ -20,6 +20,7 @@ function App() {
         <Route path ="/login" component={Login}/>
         <Route path="/create" component={CreatePost}/>
         <Route path="/current-post/:id" component={CurrentPost}/>
+        <Route path ="/edit/:id" component={CreatePost}/>
       </Switch>
       <Footer />
     </div>
